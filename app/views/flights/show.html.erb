@@ -18,7 +18,7 @@
 
 </div>
 
-<script>
+<!-- <script>
   var rows = <%= @flight.plane.row %>;
   var columns = <%= @flight.plane.column %>;
 
@@ -30,6 +30,31 @@
       var $div = $("<div></div>");
       $div.attr("class", (j+1));
       $div.attr("id", rowArrays[i]);
+
+      var $planeDiagram = $(".planeDiagram");
+      $planeDiagram.append($div);
+    }
+  var $lineBreak = $("</br>");
+  $planeDiagram.append($lineBreak);
+  }
+
+
+</script> -->
+
+<script>
+  var row = <%= @flight.plane.row %>;
+  var column = <%= @flight.plane.column %>;
+
+  var alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+  var columnArray = alphabets.slice(0, row);
+
+  for (var i = 0; i < row; i++) {
+    for (var j = 0; j < column; j++) {
+      var $div = $("<div></div>");
+
+      $div.attr("class", columnArray[j]);
+      $div.attr("id", (i+1));
+
 
       var $planeDiagram = $(".planeDiagram");
       $planeDiagram.append($div);
