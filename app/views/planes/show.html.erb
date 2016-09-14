@@ -16,14 +16,14 @@
   var column = <%= @plane.column %>;
 
   var alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-  var rowArray = alphabets.slice(0, row);
+  var columnArray = alphabets.slice(0, row);
 
   for (var i = 0; i < row; i++) {
     for (var j = 0; j < column; j++) {
       var $div = $("<div></div>");
-      $div.attr("class", (j+1));
-      $div.attr("id", rowArray[i]);
-      
+      $div.attr("class", columnArray[j]);
+      $div.attr("id", (i+1));
+
       var $planeDiagram = $(".planeDiagram");
       $planeDiagram.append($div);
     }

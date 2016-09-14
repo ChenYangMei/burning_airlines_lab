@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Plane.destroy_all
-p1 = Plane.create :name => "747"
-p2 = Plane.create :name => "757"
-p3 = Plane.create :name => "777"
+p1 = Plane.create :name => "747", :row => 10, :column => 5
+p2 = Plane.create :name => "757", :row => 15, :column => 6
+p3 = Plane.create :name => "777", :row => 20, :column => 7
 
 Flight.destroy_all
 f1 = Flight.create :name => "ABC", :origin => "Sydney", :destination => "New York", :date => "2016/10/12"
@@ -31,3 +31,12 @@ u3 = User.create :name => "Badger", :email => "badger@ga.co", :password => "chic
 u1.flights << f1 << f2
 u2.flights << f2 << f3
 u3.flights << f3 << f4 << f5 << f6
+
+Reservation.destroy_all
+r1 = Reservation.create :row => 1, :column => 1
+r2 = Reservation.create :row => 2, :column => 2
+
+u2.reservations << r1
+u3.reservations << r2
+
+f1.reservations << r1 << r2
