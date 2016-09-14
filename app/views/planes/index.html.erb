@@ -1,0 +1,9 @@
+<h1>This is a list of all planes</h1>
+
+<ul>
+<% @planes.each do |p| %>
+  <li>
+    <%= link_to(p.name, plane_path(p.id))   %>
+  </li>
+<% end  %>
+</ul>

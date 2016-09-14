@@ -1,0 +1,18 @@
+<h1>Edit <%= @plane.name %> below</h1>
+
+<%= form_for @plane, :url => "/planes/#{@plane.id}" do |f| %>
+  <p>
+    <%= f.label(:name) %>
+    <%= f.text_field(:name, :required => true) %>
+  </p>
+  <p>
+    <%= f.label(:row) %>
+    <%= f.text_field(:row, :required => true) %>
+  </p>
+  <p>
+    <%= f.label(:column) %>
+    <%= f.text_field(:column, :required => true) %>
+  </p>
+
+  <%= f.submit %>
+  <% end %>

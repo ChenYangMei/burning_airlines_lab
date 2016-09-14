@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :planes
   resources :users
 
   # Session
