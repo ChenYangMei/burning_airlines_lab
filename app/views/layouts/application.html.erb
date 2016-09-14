@@ -21,6 +21,15 @@
   <% end %>
 
 
+<nav>
+    <%= link_to("All flights", flights_path) %>
+    <%= link_to("All planes", planes_path) %>
+</nav>
+
+<% if @current_user.present? %>
+<p class="login">You are logged in as <%= @current_user.name %></p>
+<% end %>
+
   <div class="container">
     <%= yield %>
   </div>

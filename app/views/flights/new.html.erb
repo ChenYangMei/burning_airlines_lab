@@ -1,0 +1,22 @@
+<h1>Create a new flight below</h1>
+
+<%= form_for @flight, :url => "/flights/#{@flight.id}" do |f| %>
+  <p>
+    <%= f.label(:name) %>
+    <%= f.text_field(:name, :required => true) %>
+  </p>
+  <p>
+    <%= f.label(:origin) %>
+    <%= f.text_field(:origin, :required => true) %>
+  </p>
+  <p>
+    <%= f.label(:destination) %>
+    <%= f.text_field(:destination, :required => true) %>
+  </p>
+  <p>
+    <%= f.label(:date) %>
+    <%= f.text_field(:date, :required => true) %>
+  </p>
+
+  <%= f.submit %>
+  <% end %>

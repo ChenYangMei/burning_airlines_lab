@@ -1,0 +1,74 @@
+<h1>This is the list of all flights</h1>
+
+<div class="col">
+  <h4>Date</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= flight.date  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>Flight</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= link_to(flight.name, flight_path(flight.id))  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>From</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= flight.origin  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>Destination</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= flight.destination  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>Plane type</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= flight.plane.name  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>Total seats</h4>
+  <hr>
+  <ul>
+  <% @flights.each do |flight| %>
+    <li><%= flight.plane.row.to_i * flight.plane.column.to_i  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="col">
+  <h4>Seats remaining (TBC)</h4>
+  <hr>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

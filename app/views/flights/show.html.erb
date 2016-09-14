@@ -1,0 +1,45 @@
+<h1>This is the individual page of: <%= @flight.name %></h1>
+
+<ul>
+    <h5>Flight details</h5>
+        <hr>
+        <li>Origin: <%= @flight.origin %></li>
+        <li>Destination: <%= @flight.destination %></li>
+        <li>Departure date: <%= @flight.date %></li>
+        <li>Plane type: <%= @flight.plane.name %></li>
+        <hr>
+    <h5>Choose seat below</h5>
+        <li>Total seats: <%= @flight.plane.row.to_i * @flight.plane.column.to_i %></li>
+        <li>Seats booked (NEEDS TO AUTO-UPDATE): <%= @flight.booked_seats %> </li>
+        <li>Seats currently available: <%=@flight.plane.row.to_i * @flight.plane.column.to_i - @flight.booked_seats.to_i %> </li>
+
+</ul>
+<div class="planeDiagram">
+
+</div>
+
+<script>
+  var rows = <%= @flight.plane.row %>;
+  var columns = <%= @flight.plane.column %>;
+
+  var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+  var rowArrays = alphabet.slice(0, rows);
+
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < columns; j++) {
+      var $div = $("<div></div>");
+      $div.attr("class", (j+1));
+      $div.attr("id", rowArrays[i]);
+
+      var $planeDiagram = $(".planeDiagram");
+      $planeDiagram.append($div);
+    }
+  var $lineBreak = $("</br>");
+  $planeDiagram.append($lineBreak);
+  }
+
+
+</script>
+
+
+<button type="button" name="button">Submit</button>

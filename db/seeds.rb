@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Plane.destroy_all
-p1 = Plane.create :name => "747"
-p2 = Plane.create :name => "757"
-p3 = Plane.create :name => "777"
+p1 = Plane.create :name => "747", :row=> 10, :column=>6
+p2 = Plane.create :name => "757", :row=> 15, :column=>8
+p3 = Plane.create :name => "777", :row=> 20, :column=>10
 
 Flight.destroy_all
 f1 = Flight.create :name => "ABC", :origin => "Sydney", :destination => "New York", :date => "2016/10/12"
