@@ -35,8 +35,8 @@ u2.flights << f2 << f3
 u3.flights << f3 << f4 << f5 << f6
 
 Reservation.destroy_all
-r1 = Reservation.create :row => 1, :column => 1
-r2 = Reservation.create :row => 2, :column => 2
+r1 = Reservation.create :row => 5, :column => 5
+r2 = Reservation.create :row => 8, :column => 3
 
 u2.reservations << r1
 u3.reservations << r2
