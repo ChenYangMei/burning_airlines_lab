@@ -1,0 +1,27 @@
+<div id="search">
+  <h1>Backbone</h1>
+</div>
+
+<script type="underscore/template" id="searchViewTemplate">
+  <h1>Search Your flight Here:</h1>
+
+  <div id="searchForm">
+    origin destination search
+  </div>
+
+  <ul id = "flights">
+    No flights selected yet.
+  </ul>
+</script>
+
+<script type="underscore/template" id = "searchInputViewTemplate">
+  <p>
+    Origin: <input type="text" name="origin" id="origin" class="input"><br><br/>
+    Destination: <input type="text" name="destination" id="destination" class="input"><br><br/>
+    <input type="submit" value="Submit" class="bla">
+  </p>
+</script>
+
+<script type="underscore/template" id = "flightViewTemplate">
+  <li>Flight: <%%= name %> | Date: <%%= date %> | Origin: <%%= origin %> | Destination: <%%= destination %></li>
+</script>
