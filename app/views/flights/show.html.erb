@@ -12,59 +12,34 @@
         <li>Total seats: <%= @flight.plane.row.to_i * @flight.plane.column.to_i %></li>
         <li>Seats booked (NEEDS TO AUTO-UPDATE): <%= @flight.booked_seats %> </li>
         <li>Seats currently available: <%=@flight.plane.row.to_i * @flight.plane.column.to_i - @flight.booked_seats.to_i %> </li>
-
 </ul>
+
+
 <div class="planeDiagram">
 
+  <script>
+    var row = <%= @flight.plane.row %>;
+    var column = <%= @flight.plane.column %>;
+
+    var alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+    var columnArray = alphabets.slice(0, row);
+
+    for (var i = 0; i < row; i++) {
+      for (var j = 0; j < column; j++) {
+        var $div = $("<div></div>");
+
+        $div.attr("class", columnArray[j]);
+        $div.attr("id", (i+1));
+
+
+        var $planeDiagram = $(".planeDiagram");
+        $planeDiagram.append($div);
+      }
+    var $lineBreak = $("</br>");
+    $planeDiagram.append($lineBreak);
+    }
+  </script>
+
+  <button type="button" name="button">Submit</button>
+  
 </div>
-
-<!-- <script>
-  var rows = <%= @flight.plane.row %>;
-  var columns = <%= @flight.plane.column %>;
-
-  var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-  var rowArrays = alphabet.slice(0, rows);
-
-  for (var i = 0; i < rows; i++) {
-    for (var j = 0; j < columns; j++) {
-      var $div = $("<div></div>");
-      $div.attr("class", (j+1));
-      $div.attr("id", rowArrays[i]);
-
-      var $planeDiagram = $(".planeDiagram");
-      $planeDiagram.append($div);
-    }
-  var $lineBreak = $("</br>");
-  $planeDiagram.append($lineBreak);
-  }
-
-
-</script> -->
-
-<script>
-  var row = <%= @flight.plane.row %>;
-  var column = <%= @flight.plane.column %>;
-
-  var alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-  var columnArray = alphabets.slice(0, row);
-
-  for (var i = 0; i < row; i++) {
-    for (var j = 0; j < column; j++) {
-      var $div = $("<div></div>");
-
-      $div.attr("class", columnArray[j]);
-      $div.attr("id", (i+1));
-
-
-      var $planeDiagram = $(".planeDiagram");
-      $planeDiagram.append($div);
-    }
-  var $lineBreak = $("</br>");
-  $planeDiagram.append($lineBreak);
-  }
-
-
-</script>
-
-
-<button type="button" name="button">Submit</button>
