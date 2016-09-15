@@ -9,10 +9,16 @@ app.SecretView = Backbone.View.extend({
     //we provided a model when we instantiated this view
     //save its content
       var row = this.model.get("row"); //the content key on the model passed in
+      var column = this.model.get("column"); //this is a number. Needs to be converted into alphabet
       // var col = this.model.get("column");
-      this.$el.text(row);
 
-      var $div = $("#"+row+"B");
+      var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+      var columnToAlpha = alphabet[column - 1];
+      console.log(columnToAlpha);
+
+      this.$el.text("Seat: " + row + columnToAlpha);
+
+      var $div = $("#"+row+columnToAlpha);
       console.log($div);
       // $div.attr("id",column);
       $div.css("background-color","green");

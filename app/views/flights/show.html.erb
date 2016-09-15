@@ -13,9 +13,11 @@
         <li>Seats booked (NEEDS TO AUTO-UPDATE): <%= @flight.booked_seats %> </li>
         <li>Seats currently available: <%=@flight.plane.row.to_i * @flight.plane.column.to_i - @flight.booked_seats.to_i %> </li>
 </ul>
+<br>
 
 
 <div class="planeDiagram">
+  <br>
 
   <script>
     var row = <%= @flight.plane.row %>; 10
@@ -40,7 +42,6 @@
     }
   </script>
 
-  <button type="button" name="button">Submit</button>
 
 </div>
 
@@ -50,19 +51,20 @@
 
 
 <script type="underscore/template" id="appViewTemplate">
-  <h1>Rows on the flight booked</h1>
+  <h1>Book your seat below: </h1>
 
   <div id="secretForm">
     An instance of the SecretInputView should be loaded here
   </div>
 
   <ul id="secrets">
-    Many instances of the SecretView should be loaded here
+
   </ul>
 </script>
 
 
 <script type="undersore/template" id="secretInputViewTemplate">
-  <textarea placeholder="Insert row"></textarea>
+  <textarea placeholder="Insert row (number)" id="textarea"></textarea>
+  <textarea placeholder="Insert column (alphabet)" id="textareatwo"></textarea>
   <button>Submit</button>
 </script>
