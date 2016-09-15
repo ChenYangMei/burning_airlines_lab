@@ -18,8 +18,8 @@
 <div class="planeDiagram">
 
   <script>
-    var row = <%= @flight.plane.row %>;
-    var column = <%= @flight.plane.column %>;
+    var row = <%= @flight.plane.row %>; 10
+    var column = <%= @flight.plane.column %>; 5
 
     var alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
     var columnArray = alphabets.slice(0, row);
@@ -29,7 +29,7 @@
         var $div = $("<div></div>");
 
         $div.attr("class", columnArray[j]);
-        $div.attr("id", (i+1));
+        $div.attr("id", (i+1)+columnArray[j]);
 
 
         var $planeDiagram = $(".planeDiagram");
@@ -41,5 +41,28 @@
   </script>
 
   <button type="button" name="button">Submit</button>
-  
+
 </div>
+
+<div id="app">
+  <h1>This is where our Backbone should be started</h1>
+</div>
+
+
+<script type="underscore/template" id="appViewTemplate">
+  <h1>Rows on the flight booked</h1>
+
+  <div id="secretForm">
+    An instance of the SecretInputView should be loaded here
+  </div>
+
+  <ul id="secrets">
+    Many instances of the SecretView should be loaded here
+  </ul>
+</script>
+
+
+<script type="undersore/template" id="secretInputViewTemplate">
+  <textarea placeholder="Insert row"></textarea>
+  <button>Submit</button>
+</script>
