@@ -31,12 +31,23 @@ app.SecretInputView = Backbone.View.extend({
 
     newSecret.set({
       row: userInputRow,
-      column: newUserInputColumn
+      column: newUserInputColumn,
+      flight_id: $("#flightID").text()
     });
+
 
     //newSecret doesnt have an ID, so this will send a POST req to the url (as set urlroot) defied on the model.POST req to secrets runs the create method (in the secrets controller. The content of that is defined in secrets.jso.builder)
     newSecret.save(); //this will send a post request to /secrets, at which point it creates it
-    app.reservations.add(newSecret); //this fires the add event listener on app.secrets, which puts this particular secret on the page
+    var newestSecret = app.reservations.add(newSecret); //this fires the add event listener on app.secrets, which puts this particular secret on the page
+    var row = newestSecret.attributes.row;
+    var column = newestSecret.attributes.column;
+
+    var alphabetTwo = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+    var columnToAlpha = alphabetTwo[column - 1];
+
+    var $div = $("#"+row+columnToAlpha);
+    $div.css("background-color","green");
+
 
     this.$el.find("#textarea").val('').focus(); //this says to clear the textarea section once a secret has been entered and .focus puts the cursor on the screen
     this.$el.find("#textareatwo").val('').focus();

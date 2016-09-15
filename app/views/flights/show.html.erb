@@ -3,18 +3,37 @@
 <ul>
     <h5>Flight details</h5>
         <hr>
+        <p id="flightID"><%= @flight.id %></p>
         <li>Origin: <%= @flight.origin %></li>
         <li>Destination: <%= @flight.destination %></li>
         <li>Departure date: <%= @flight.date %></li>
         <li>Plane type: <%= @flight.plane.name %></li>
         <hr>
-    <h5>Choose seat below</h5>
-        <li>Total seats: <%= @flight.plane.row.to_i * @flight.plane.column.to_i %></li>
-        <li>Seats booked (NEEDS TO AUTO-UPDATE): <%= @flight.booked_seats %> </li>
-        <li>Seats currently available: <%=@flight.plane.row.to_i * @flight.plane.column.to_i - @flight.booked_seats.to_i %> </li>
-</ul>
 <br>
 
+<div id="app">
+  <h1>This is where our Backbone should be started</h1>
+</div>
+
+
+<script type="underscore/template" id="appViewTemplate">
+  <h1>Book your seat below: </h1>
+
+  <div id="secretForm">
+    An instance of the SecretInputView should be loaded here
+  </div>
+
+  <ul id="secrets">
+
+  </ul>
+</script>
+
+
+<script type="undersore/template" id="secretInputViewTemplate">
+  <textarea placeholder="Insert row (number)" id="textarea"></textarea>
+  <textarea placeholder="Insert column (alphabet)" id="textareatwo"></textarea>
+  <button>Submit</button>
+</script>
 
 <div class="planeDiagram">
   <br>
@@ -44,27 +63,3 @@
 
 
 </div>
-
-<div id="app">
-  <h1>This is where our Backbone should be started</h1>
-</div>
-
-
-<script type="underscore/template" id="appViewTemplate">
-  <h1>Book your seat below: </h1>
-
-  <div id="secretForm">
-    An instance of the SecretInputView should be loaded here
-  </div>
-
-  <ul id="secrets">
-
-  </ul>
-</script>
-
-
-<script type="undersore/template" id="secretInputViewTemplate">
-  <textarea placeholder="Insert row (number)" id="textarea"></textarea>
-  <textarea placeholder="Insert column (alphabet)" id="textareatwo"></textarea>
-  <button>Submit</button>
-</script>
